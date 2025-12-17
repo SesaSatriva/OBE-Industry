@@ -15,7 +15,11 @@ class Mahasiswa(models.Model):
     nim = fields.Char(string='NIM', required=True)
     kelas = fields.Char(string='Kelas')
     rombel = fields.Char(string='Rombel')
-    angkatan = fields.Integer(string='Angkatan')
+
+    angkatan = fields.Integer(
+        string='Angkatan',
+        required=True
+    )
 
     email = fields.Char(
         string='Email',
@@ -41,18 +45,11 @@ class Mahasiswa(models.Model):
         string='Dosen PA'
     )
 
-    mata_kuliah_ids = fields.Many2many(
-        'obe.mata.kuliah',
-        relation='obe_mahasiswa_mata_kuliah_rel',
-        column1='mahasiswa_id',
-        column2='mata_kuliah_id',
-        string='Mata Kuliah'
-    )
-
-    nilai_ids = fields.One2many(
-        'obe.nilai',
+    # NILAI MAHASISWA (SATU-SATUNYA SUMBER NILAI)
+    nilai_komponen_ids = fields.One2many(
+        'obe.nilai.komponen',
         'mahasiswa_id',
-        string='Nilai'
+        string='Nilai Komponen'
     )
 
     display_name = fields.Char(
@@ -65,13 +62,18 @@ class Mahasiswa(models.Model):
         for rec in self:
             rec.display_name = f"{rec.name} ({rec.nim})"
 
+    @api.constrains('angkatan')
+    def _check_angkatan(self):
+        for rec in self:
+            if rec.angkatan < 2000:
+                raise ValidationError('Angkatan tidak valid')
+
     @api.model
     def create(self, vals):
         password = vals.pop('password', None)
         rec = super().create(vals)
 
         if not rec.user_id:
-            # cari user berdasarkan email
             user = self.env['res.users'].sudo().search(
                 [('login', '=', rec.email)],
                 limit=1
@@ -83,7 +85,7 @@ class Mahasiswa(models.Model):
                     'name': rec.name,
                     'login': rec.email,
                     'email': rec.email,
-                    'groups_id': [(6, 0, [portal_group.id])],
+                    'groups_id': [(4, portal_group.id)],
                 }
 
                 if password:

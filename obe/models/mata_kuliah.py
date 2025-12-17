@@ -1,47 +1,48 @@
-from odoo import models, fields
+from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
-class MataKuliah(models.Model):
-    _name = 'obe.mata.kuliah'
-    _description = 'Mata Kuliah'
+class CplMataKuliah(models.Model):
+    _name = 'obe.cpl.mata.kuliah'
+    _description = 'Kontribusi Mata Kuliah terhadap CPL'
+    _rec_name = 'mata_kuliah_id'
 
-    _sql_constraints = [
-        ('matakuliah_ids_unique', 'unique(matakuliah_ids)', 'Kode Mata Kuliah harus unik!')
-    ]
+    cpl_id = fields.Many2one(
+        'obe.cpl',
+        string='CPL',
+        required=True,
+        ondelete='cascade'
+    )
 
-    matakuliah_ids = fields.Char(string='Kode Mata Kuliah', required=True)
-    name = fields.Char(string='Nama Mata Kuliah', required=True)
-    sks = fields.Integer(string='SKS', required=True)
+    mata_kuliah_id = fields.Many2one(
+        'obe.mata.kuliah',
+        string='Mata Kuliah',
+        required=True,
+        ondelete='cascade'
+    )
 
-    tipe = fields.Selection(
-        selection=[
-            ('teori', 'Teori'),
-            ('praktikum', 'Praktikum')
-        ],
-        string='Tipe Mata Kuliah',
+    bobot = fields.Float(
+        string='Bobot Kontribusi (%)',
         required=True
     )
 
-    mahasiswa_id = fields.Many2many(
-        comodel_name='obe.mahasiswa',
-        relation='obe_mahasiswa_mata_kuliah_rel',
-        column1='mata_kuliah_id',
-        column2='mahasiswa_id',
-        string='Mahasiswa'
-    )
+    _sql_constraints = [
+        (
+            'unique_cpl_mk',
+            'unique(cpl_id, mata_kuliah_id)',
+            'Mata kuliah tidak boleh didaftarkan dua kali pada CPL yang sama.'
+        )
+    ]
 
+    @api.constrains('bobot', 'cpl_id')
+    def _check_total_bobot_cpl(self):
+        for rec in self:
+            if not rec.cpl_id:
+                continue
 
-    dosen_ids = fields.Many2many(
-        comodel_name='obe.dosen',
-        relation='obe_mk_dosen_rel',
-        column1='mata_kuliah_id',
-        column2='dosen_id',
-        string='Dosen Pengampu'
-    )
+            records = self.search([('cpl_id', '=', rec.cpl_id.id)])
+            total = sum(records.mapped('bobot'))
 
-    cpl_ids = fields.Many2many(
-        'obe.cpl',
-        'obe_mata_kuliah_cpl_rel',
-        'mata_kuliah_id',
-        'cpl_id',
-        string='CPL Mapping'
-    )
+            if total > 100.0 + 1e-6:
+                raise ValidationError(
+                    f'Total bobot mata kuliah untuk {rec.cpl_id.cpl_ids} melebihi 100%.'
+                )

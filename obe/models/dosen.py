@@ -1,34 +1,45 @@
-from odoo import models, fields, api
+from odoo import models, fields
+
+
 class Dosen(models.Model):
     _name = 'obe.dosen'
     _description = 'Dosen'
+    _rec_name = 'display_name'
 
     _sql_constraints = [
         ('nidn_unique', 'unique(nidn)', 'NIDN harus unik!')
     ]
 
-    name = fields.Char(string='Nama', required=True)
-    nidn = fields.Char(string='NIDN', required=True)
-    email = fields.Char(string='Email')
+    name = fields.Char(
+        string='Nama',
+        required=True
+    )
 
+    nidn = fields.Char(
+        string='NIDN',
+        required=True
+    )
+
+    email = fields.Char(
+        string='Email',
+        index=True
+    )
+
+    # DOSEN PEMBIMBING AKADEMIK
     mahasiswa_ids = fields.One2many(
-        comodel_name='obe.mahasiswa',
-        inverse_name='dosen_pa_id',
+        'obe.mahasiswa',
+        'dosen_pa_id',
         string='Mahasiswa Bimbingan'
     )
 
-    mata_kuliah_id = fields.Many2many(
-        comodel_name='obe.mata.kuliah',
-        string='Mata Kuliah Diampu'
+    display_name = fields.Char(
+        compute='_compute_display_name',
+        store=True
     )
 
-    cpl_ids = fields.Many2many(
-        comodel_name='obe.cpl',
-        relation='obe_dosen_cpl_rel',
-        column1='dosen_id',
-        column2='cpl_id',
-        string='CPL Diampu'
-    )
+    def _compute_display_name(self):
+        for rec in self:
+            rec.display_name = f"{rec.name} ({rec.nidn})"
 
     def name_get(self):
-        return [(rec.id, f"{rec.name} ({rec.nidn})") for rec in self]
+        return [(rec.id, rec.display_name) for rec in self]
