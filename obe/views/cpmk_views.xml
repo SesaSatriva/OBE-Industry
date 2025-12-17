@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <!-- TREE VIEW CPMK -->
+        <record id="view_cpmk_tree" model="ir.ui.view">
+            <field name="name">obe.cpmk.tree</field>
+            <field name="model">obe.cpmk</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code" />
+                    <field name="mata_kuliah_id" />
+                    <field name="bobot" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- FORM VIEW CPMK -->
+        <record id="view_cpmk_form" model="ir.ui.view">
+            <field name="name">obe.cpmk.form</field>
+            <field name="model">obe.cpmk</field>
+            <field name="arch" type="xml">
+                <form string="CPMK">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code" />
+                                <field name="mata_kuliah_id" />
+                            </group>
+                            <group>
+                                <field name="bobot" />
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description" />
+                        </group>
+                        <notebook>
+                            <page string="CPL Terkait">
+                                <field name="cpl_ids" widget="many2many_tags" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

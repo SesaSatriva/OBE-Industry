@@ -1,0 +1,274 @@
+/* ===============================
+   GLOBAL PORTAL BASE
+================================ */
+
+body.o_portal {
+    background-color: #FFFCF0;
+    color: #2E2E2E;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.o_portal_wrap {
+    background-color: transparent;
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+header.o_header_standard {
+    border-bottom: 3px solid #F2D15B;
+}
+
+header.o_header_standard .btn-primary {
+    background-color: #F2D15B;
+    border-color: #D4B24C;
+    color: #2E2E2E;
+}
+
+header.o_header_standard .btn-primary:hover {
+    background-color: #E6C44F;
+}
+
+/* ===============================
+   PORTAL HOME (/my)
+================================ */
+
+.o_portal_my_home h2,
+.o_portal_my_home h3 {
+    color: #2E2E2E;
+    font-weight: 600;
+}
+
+.o_portal_my_home .card,
+.o_portal_my_home .o_portal_record {
+    background: #FFFFFF;
+    border: 1px solid #E6E1C9;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s ease;
+}
+
+.o_portal_my_home .o_portal_record:hover {
+    border-color: #F2D15B;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
+.o_portal_my_home .o_portal_record i {
+    color: #D4B24C;
+}
+
+/* ===============================
+   USER CARD (KANAN)
+================================ */
+
+.o_portal_details {
+    background: #FFFFFF;
+    border: 1px solid #E6E1C9;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.o_portal_details .o_portal_avatar {
+    background-color: #F2D15B;
+    color: #2E2E2E;
+}
+
+/* ===============================
+   LINK & ACTION
+================================ */
+
+.o_portal_wrap a {
+    color: #B89B2D;
+    text-decoration: none;
+}
+
+.o_portal_wrap a:hover {
+    color: #8F7720;
+    text-decoration: underline;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+footer {
+    background: linear-gradient(135deg, #1F2430, #2A3142);
+    color: #EDEDED;
+}
+
+footer a {
+    color: #F2D15B;
+}
+
+footer a:hover {
+    color: #D4B24C;
+}
+
+/* =================================================
+   OBE PORTAL DASHBOARD (/my/obe)
+================================================== */
+
+.o_obe_portal_dashboard {
+    --obe-dark: #1F2430;
+    --obe-gold: #F2D15B;
+    --obe-gold-dark: #D4B24C;
+    --obe-soft: #FFFCF0;
+    --obe-border: #E6E1C9;
+    --obe-text: #2E2E2E;
+
+    font-family: "Inter", "Segoe UI", sans-serif;
+    color: var(--obe-text);
+    padding-bottom: 40px;
+}
+
+/* ==========================
+   PAGE HEADER
+========================== */
+
+.o_obe_portal_dashboard h3 {
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--obe-dark);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.o_obe_portal_dashboard h3::before {
+    content: "";
+    width: 6px;
+    height: 28px;
+    background: var(--obe-gold);
+    border-radius: 4px;
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.o_obe_portal_dashboard .card {
+    border-radius: 14px;
+    border: 1px solid var(--obe-border);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    height: 100%;
+}
+
+.o_obe_portal_dashboard .card-body {
+    padding: 24px;
+}
+
+.o_obe_portal_dashboard .card h5 {
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--obe-dark);
+    border-bottom: 1px solid var(--obe-border);
+    padding-bottom: 8px;
+}
+
+/* ==========================
+   PROFIL MAHASISWA
+========================== */
+
+.o_obe_portal_dashboard .profile-card {
+    background: linear-gradient(180deg, #FFFFFF, #FFFCF0);
+}
+
+.o_obe_portal_dashboard .obe-profile p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.o_obe_portal_dashboard .obe-profile strong {
+    display: inline-block;
+    min-width: 90px;
+    color: #555;
+}
+
+/* ==========================
+   TABLE NILAI
+========================== */
+
+.o_obe_portal_dashboard table {
+    font-size: 14px;
+}
+
+.o_obe_portal_dashboard thead th {
+    background: var(--obe-soft);
+    border-bottom: 2px solid var(--obe-border);
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.o_obe_portal_dashboard tbody td {
+    vertical-align: middle;
+    padding: 10px 12px;
+}
+
+.o_obe_portal_dashboard tbody td:first-child {
+    font-weight: 500;
+}
+
+.o_obe_portal_dashboard tbody tr:hover {
+    background: #FAFAFA;
+}
+
+/* ==========================
+   BADGE NILAI
+========================== */
+
+.o_obe_portal_dashboard .badge {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    min-width: 48px;
+    text-align: center;
+}
+
+.o_obe_portal_dashboard .bg-success {
+    background-color: #2E7D32 !important;
+}
+
+.o_obe_portal_dashboard .bg-danger {
+    background-color: #C62828 !important;
+}
+
+/* ==========================
+   EMPTY STATE
+========================== */
+
+.o_obe_portal_dashboard .alert-warning {
+    background: #FFFCF0;
+    border: 1px solid var(--obe-gold-dark);
+    border-left: 6px solid var(--obe-gold);
+    color: #6B5A12;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+    .o_obe_portal_dashboard .card-body {
+        padding: 18px;
+    }
+
+    .o_obe_portal_dashboard table {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .o_obe_portal_dashboard h3 {
+        font-size: 20px;
+    }
+
+    .o_obe_portal_dashboard .card {
+        margin-bottom: 16px;
+    }
+}

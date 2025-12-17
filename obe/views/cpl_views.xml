@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record id="view_cpl_tree" model="ir.ui.view">
+            <field name="name">obe.cpl.tree</field>
+            <field name="model">obe.cpl</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="cpl_ids" />
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_cpl_form" model="ir.ui.view">
+            <field name="name">obe.cpl.form</field>
+            <field name="model">obe.cpl</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="cpl_ids" />
+                            <field name="description" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

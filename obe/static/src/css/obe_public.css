@@ -1,0 +1,96 @@
+/* ==========================
+   PUBLIC OBE WEBSITE
+========================== */
+.obe-public {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    color: #2E2E2E;
+}
+
+/* HERO */
+.obe-hero {
+    background: linear-gradient(135deg, #1F2430, #2A3142);
+    color: #FFFFFF;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.obe-hero h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.obe-subtitle {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.obe-cta {
+    margin-top: 32px;
+}
+
+.obe-cta .btn {
+    margin: 0 8px;
+    padding: 12px 28px;
+    border-radius: 30px;
+}
+
+.btn-primary {
+    background: #F2D15B;
+    border-color: #D4B24C;
+    color: #2E2E2E;
+}
+
+.btn-outline {
+    border: 2px solid #F2D15B;
+    color: #F2D15B;
+}
+
+/* SECTION */
+.obe-section {
+    padding: 80px 0;
+}
+
+.obe-section.light {
+    background: #FFFCF0;
+}
+
+/* GRID */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+}
+
+/* CARD */
+.obe-card {
+    background: #FFFFFF;
+    border: 1px solid #E6E1C9;
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+}
+
+.obe-card h3 {
+    color: #B89B2D;
+    margin-bottom: 12px;
+}
+
+/* LIST */
+.obe-list li {
+    margin-bottom: 10px;
+}
+
+/* HIGHLIGHT */
+.obe-highlight {
+    background: #F2D15B;
+    border-radius: 16px;
+    padding: 40px;
+    font-size: 20px;
+    text-align: center;
+}

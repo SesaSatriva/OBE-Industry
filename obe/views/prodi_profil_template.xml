@@ -1,0 +1,50 @@
+<odoo>
+  <template id="page_profil_prodi" name="Profil Program Studi">
+    <t t-call="website.layout">
+      <div class="container my-5">
+
+        <h1 t-esc="prodi.name" class="mb-3"/>
+
+        <section class="mb-4">
+          <h4>Deskripsi Program Studi</h4>
+          <p t-esc="prodi.description"/>
+        </section>
+
+        <section class="mb-4">
+          <h4>Visi</h4>
+          <p t-esc="prodi.vision"/>
+        </section>
+
+        <section class="mb-4">
+          <h4>Misi</h4>
+          <p t-esc="prodi.mission"/>
+        </section>
+
+        <section class="mb-4">
+          <h4>Akreditasi</h4>
+          <p>
+            <strong t-esc="prodi.accreditation"/>
+            <t t-if="prodi.accreditation_expired">
+              (berlaku sampai
+              <t t-esc="prodi.accreditation_expired"/>)
+            </t>
+          </p>
+        </section>
+
+        <section class="mb-4">
+          <h4>Gelar Lulusan</h4>
+          <p t-esc="prodi.degree"/>
+        </section>
+
+        <section class="mb-4">
+          <h4>Kontak Resmi</h4>
+          <ul class="list-unstyled">
+            <li>Email: <t t-esc="prodi.contact_email"/></li>
+            <li>Telepon: <t t-esc="prodi.contact_phone"/></li>
+          </ul>
+        </section>
+
+      </div>
+    </t>
+  </template>
+</odoo>

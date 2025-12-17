@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <menuitem id="menu_obe_root" name="OBE" />
+        <menuitem id="menu_mahasiswa" parent="menu_obe_root" action="action_mahasiswa"
+            name="Mahasiswa" />
+        <menuitem id="menu_dosen" parent="menu_obe_root" action="action_dosen" name="Dosen" />
+        <menuitem id="menu_mk" parent="menu_obe_root" action="action_mk" name="Mata Kuliah" />
+        <menuitem id="menu_cpl" parent="menu_obe_root" action="action_cpl" name="CPL" />
+        <menuitem id="menu_cpmk" parent="menu_obe_root" action="action_cpmk" name="CPMK" />
+        <menuitem id="menu_nilai" parent="menu_obe_root" action="action_nilai" name="Nilai" />
+        <menuitem id="menu_import_mahasiswa" 
+                  name="Import Mahasiswa" 
+                  parent="menu_obe_root" 
+                  action="action_import_mahasiswa_wizard" 
+                  sequence="100"/>
+    </data>
+</odoo>

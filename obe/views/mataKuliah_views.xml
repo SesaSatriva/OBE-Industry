@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="view_mk_tree" model="ir.ui.view">
+            <field name="name">obe.mata.kuliah.tree</field>
+            <field name="model">obe.mata.kuliah</field>
+            <field name="arch" type="xml">
+                <tree string="Daftar Mata Kuliah">
+                    <field name="matakuliah_ids" />
+                    <field name="name" />
+                    <field name="sks" />
+                    <field name="tipe" />
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_mk_form" model="ir.ui.view">
+            <field name="name">obe.mata.kuliah.form</field>
+            <field name="model">obe.mata.kuliah</field>
+            <field name="arch" type="xml">
+                <form string="Mata Kuliah">
+                    <sheet>
+
+                        <!-- IDENTITAS MK -->
+                        <group string="Identitas Mata Kuliah" col="2">
+                            <field name="matakuliah_ids" string="Kode Mata Kuliah" />
+                            <field name="name" string="Nama Mata Kuliah" />
+                            <field name="sks" string="Jumlah SKS" />
+                            <field name="tipe" widget="radio" string="Jenis Mata Kuliah" />
+                        </group>
+
+                        <!-- DOSEN -->
+                        <group string="Dosen Pengampu">
+                            <field name="dosen_ids"
+                                string="Dosen Pengampu Mata Kuliah"
+                                help="Dosen yang bertanggung jawab terhadap mata kuliah ini" />
+                        </group>
+
+                        <notebook>
+                            <page string="CPL Prodi">
+                                <group>
+                                    <field name="cpl_ids"
+                                        string="CPL yang Didukung"
+                                        help="CPL Prodi yang dicapai melalui mata kuliah ini" />
+                                </group>
+                            </page>
+
+                            <!-- siap dikembangkan -->
+                            <page string="CPMK">
+                                <div class="o_form_label">
+                                    Mapping CPMK ke Mata Kuliah
+                                </div>
+                            </page>
+
+                            <page string="Assessment">
+                                <div class="o_form_label">
+                                    Mapping CPMK ke Mata Kuliah
+                                </div>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

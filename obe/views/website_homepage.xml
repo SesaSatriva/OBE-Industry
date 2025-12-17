@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="obe_homepage" name="OBE Homepage">
+        <t t-call="website.layout">
+            <main id="wrap" class="obe-public">
+                <!-- HERO -->
+                <section class="obe-hero">
+                    <div class="container">
+                        <h1>Outcome Based Education System</h1>
+                        <p class="obe-subtitle">
+                            Sistem Manajemen Pendidikan Berbasis Capaian Pembelajaran
+                        </p>
+                        <div class="obe-cta">
+                            <a href="/web/login" class="btn btn-primary">Login</a>
+                            <a href="/my/obe" class="btn btn-outline">Portal Mahasiswa</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- OBE EXPLANATION -->
+                <section class="obe-section light">
+                    <div class="container">
+                        <h2>Apa itu OBE?</h2>
+                        <p>
+                            Outcome Based Education (OBE) adalah pendekatan pendidikan yang
+                            menitikberatkan pada capaian pembelajaran lulusan (CPL),
+                            capaian pembelajaran mata kuliah (CPMK), serta pengukuran berbasis
+                            bukti.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- OBE FLOW -->
+                <section class="obe-section">
+                    <div class="container grid-3">
+                        <div class="obe-card">
+                            <h3>CPL</h3>
+                            <p>Capaian Pembelajaran Lulusan sebagai target utama pendidikan.</p>
+                        </div>
+                        <div class="obe-card">
+                            <h3>CPMK</h3>
+                            <p>Turunan CPL pada level mata kuliah yang terukur.</p>
+                        </div>
+                        <div class="obe-card">
+                            <h3>Assessment</h3>
+                            <p>Evaluasi berbasis rubrik untuk memastikan ketercapaian.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FEATURES -->
+                <section class="obe-section light">
+                    <div class="container grid-2">
+                        <div>
+                            <h2>Keunggulan Sistem</h2>
+                            <ul class="obe-list">
+                                <li>Integrasi CPL – CPMK – Nilai</li>
+                                <li>Monitoring capaian mahasiswa</li>
+                                <li>Portal mahasiswa real-time</li>
+                                <li>Siap akreditasi OBE</li>
+                            </ul>
+                        </div>
+                        <div class="obe-highlight">
+                            <strong>Transparan. Terukur. Akuntabel.</strong>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="view_nilai_tree" model="ir.ui.view">
+            <field name="name">obe.nilai.tree</field>
+            <field name="model">obe.nilai</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="mahasiswa_id" />
+                    <field name="mata_kuliah_id" />
+                    <field name="nilai_angka" />
+                    <field name="nilai_huruf" />
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

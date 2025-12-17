@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record id="view_dosen_tree" model="ir.ui.view">
+            <field name="name">obe.dosen.tree</field>
+            <field name="model">obe.dosen</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nidn" />
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_dosen_form" model="ir.ui.view">
+            <field name="name">obe.dosen.form</field>
+            <field name="model">obe.dosen</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="nidn" />
+                            <field name="name" />
+                            <field name="email" />
+                        </group>
+                        <notebook>
+                            <page string="Mahasiswa PA">
+                                <field name="mahasiswa_ids" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

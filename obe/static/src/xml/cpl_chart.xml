@@ -1,0 +1,8 @@
+<t t-name="obe.OBECPLChart">
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="mb-3">Ketercapaian CPL per Mata Kuliah</h5>
+            <canvas t-ref="canvas" height="120"/>
+        </div>
+    </div>
+</t>

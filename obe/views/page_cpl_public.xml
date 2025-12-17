@@ -1,0 +1,43 @@
+<odoo>
+    <template id="page_cpl_public" name="Capaian Pembelajaran Lulusan">
+        <t t-call="website.layout">
+            <div class="container my-5">
+
+                <div class="text-center mb-5">
+                    <h1 class="fw-bold">Capaian Pembelajaran Lulusan (CPL)</h1>
+                    <p class="text-muted mt-3">
+                        Ringkasan capaian pembelajaran yang diharapkan dimiliki oleh lulusan
+                        setelah menyelesaikan seluruh proses pendidikan.
+                    </p>
+                </div>
+
+                <div class="row">
+                    <t t-foreach="cpls" t-as="cpl">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+
+                                    <h5 class="card-title fw-semibold">
+                                        <t t-esc="cpl.cpl_ids"/>
+                                    </h5>
+
+                                    <p class="card-text text-muted mt-2">
+                                        <t t-esc="cpl.description"/>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+                <t t-if="not cpls">
+                    <div class="alert alert-info text-center">
+                        Data capaian pembelajaran lulusan belum tersedia.
+                    </div>
+                </t>
+
+            </div>
+        </t>
+    </template>
+</odoo>

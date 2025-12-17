@@ -1,0 +1,96 @@
+<odoo>
+    <template id="portal_obe_dashboard"
+        inherit_id="portal.portal_layout">
+        <xpath expr="//div[@id='wrap']" position="inside">
+            <div class="container mt-4 o_obe_portal_dashboard">
+                <h3>Portal OBE Mahasiswa</h3>
+                <t t-if="mahasiswa">
+                    <!-- isi dashboard -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Profil</h5>
+                                    <p>
+                                        <strong>Nama:</strong>
+                                        <t t-esc="mahasiswa.name" />
+                                    </p>
+                                    <p>
+                                        <strong>NIM:</strong>
+                                        <t t-esc="mahasiswa.nim" />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Nilai OBE</h5>
+                                    <table class="table table-sm table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Mata Kuliah</th>
+                                                <th>CPMK</th>
+                                                <th>Nilai</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <t t-if="nilai_list and len(nilai_list) &gt; 0">
+                                                <t t-foreach="nilai_list" t-as="n">
+                                                    <tr>
+                                                        <td>
+                                                            <t t-esc="n.mata_kuliah_id.name" />
+                                                        </td>
+                                                        <td>
+                                                            <strong>
+                                                                <t t-esc="n.cpmk_id.code" />
+                                                            </strong>
+                                                            <br />
+                                                            <small class="text-muted">
+                                                                <t t-esc="n.cpmk_id.name" />
+                                                            </small>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <span
+                                                                t-att-class="'badge ' + ('bg-success' if n.nilai &gt;= 75 else 'bg-danger')">
+                                                                <t t-esc="n.nilai" />
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                            </t>
+                                            <t t-else="">
+                                                <tr>
+                                                    <td colspan="3" class="text-center text-muted">
+                                                        Belum ada data nilai OBE
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <t t-if="cpl_chart">
+                            <t
+                                t-component="'obe.cpl_chart'"
+                                t-props="{chartData: JSON.stringify({
+                                labels: [c['label'] for c in cpl_chart], 
+                                values: [c['value'] for c in cpl_chart]})}"
+                            />
+                        </t> -->
+
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="alert alert-warning">
+                        Data mahasiswa belum terhubung dengan akun Anda.
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,36 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_obe_mahasiswa_user,obe_mahasiswa_user,model_obe_mahasiswa,base.group_user,1,0,0,0
+access_obe_dosen_user,obe_dosen_user,model_obe_dosen,base.group_user,1,0,0,0
+access_obe_mata_kuliah_user,obe_mata_kuliah_user,model_obe_mata_kuliah,base.group_user,1,0,0,0
+access_obe_cpl_user,obe_cpl_user,model_obe_cpl,base.group_user,1,0,0,0
+access_obe_cpmk_user,obe_cpmk_user,model_obe_cpmk,base.group_user,1,0,0,0
+access_obe_nilai_user,obe_nilai_user,model_obe_nilai,base.group_user,1,0,0,0
+access_obe_nilaicpmk_user,obe_nilaicpmk_user,model_obe_nilai_cpmk,base.group_user,1,0,0,0
+access_import_mahasiswa_wizard,import.mahasiswa.wizard,model_import_mahasiswa_wizard,base.group_user,1,1,1,1
+
+access_obe_admin,obe_admin,model_obe_mahasiswa,base.group_system,1,1,1,1
+access_obe_admin_dosen,obe_admin_dosen,model_obe_dosen,base.group_system,1,1,1,1
+access_obe_admin_mata_kuliah,obe_admin_mata_kuliah,model_obe_mata_kuliah,base.group_system,1,1,1,1
+access_obe_admin_cpl,obe_admin_cpl,model_obe_cpl,base.group_system,1,1,1,1
+access_obe_admin_cpmk,obe_admin_cpmk,model_obe_cpmk,base.group_system,1,1,1,1
+access_obe_admin_nilai,obe_admin_nilai,model_obe_nilai,base.group_system,1,1,1,1
+access_obe_admin_nilaicpmk,obe_admin_nilaicpmk,model_obe_nilai_cpmk,base.group_system,1,1,1,1
+
+access_obe_mahasiswa_dosen,obe_mahasiswa_dosen,model_obe_mahasiswa,obe.group_dosen,1,1,1,1
+access_obe_dosen_dosen,obe_dosen_dosen,model_obe_dosen,obe.group_dosen,1,1,0,0
+access_obe_mata_kuliah_dosen,obe_mata_kuliah_dosen,model_obe_mata_kuliah,obe.group_dosen,1,1,0,0
+access_obe_cpl_dosen,obe_cpl_dosen,model_obe_cpl,obe.group_dosen,1,1,0,0
+access_obe_cpmk_dosen,obe_cpmk_dosen,model_obe_cpmk,obe.group_dosen,1,1,0,0
+access_obe_nilai_dosen,obe_nilai_dosen,model_obe_nilai,obe.group_dosen,1,1,0,0
+access_obe_nilaicpmk_dosen,obe_nilaicpmk_dosen,model_obe_nilai_cpmk,obe.group_dosen,1,1,0,0
+access_obe_mahasiswa_mahasiswa,obe_mahasiswa_mahasiswa,model_obe_mahasiswa,obe.group_mahasiswa,1,0,0,0
+access_obe_dosen_mahasiswa,obe_dosen_mahasiswa,model_obe_dosen,obe.group_mahasiswa,1,0,0,0
+access_obe_mata_kuliah_mahasiswa,obe_mata_kuliah_mahasiswa,model_obe_mata_kuliah,obe.group_mahasiswa,1,0,0,0
+access_obe_cpl_mahasiswa,obe_cpl_mahasiswa,model_obe_cpl,obe.group_mahasiswa,1,0,0,0
+access_obe_cpmk_mahasiswa,obe_cpmk_mahasiswa,model_obe_cpmk,obe.group_mahasiswa,1,0,0,0
+access_obe_nilai_mahasiswa,obe_nilai_mahasiswa,model_obe_nilai,obe.group_mahasiswa,1,0,0,0
+access_obe_nilaicpmk_mahasiswa,obe_nilaicpmk_mahasiswa,model_obe_nilai_cpmk,obe.group_mahasiswa,1,0,0,0
+
+access_obe_mahasiswa_portal,obe.mahasiswa portal,model_obe_mahasiswa,base.group_portal,1,0,0,0
+access_obe_nilai_portal,obe.nilai portal,model_obe_nilai,base.group_portal,1,0,0,0
+

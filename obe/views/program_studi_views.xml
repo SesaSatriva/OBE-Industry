@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="view_program_studi_form" model="ir.ui.view">
+            <field name="name">program.studi.form</field>
+            <field name="model">program.studi</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="is_published" />
+                            <field name="description" />
+                            <field name="vision" />
+                            <field name="mission" />
+                            <field name="accreditation" />
+                            <field name="accreditation_expired" />
+                            <field name="degree" />
+                            <field name="contact_email" />
+                            <field name="contact_phone" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
